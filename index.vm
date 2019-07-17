@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>${title}</title>
+    <link type="image/png" href="https://www.wix.com/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="${clientTopology.staticsBaseUrl}app#if(!${debug}).min#{end}.css">
+    <script src="https://${clientTopology.staticsDomain}/unpkg/react@16.8.6/umd/react#if(!${debug}).production.min#{else}.development#{end}.js"></script>
+    <script src="https://${clientTopology.staticsDomain}/unpkg/react-dom@16.8.6/umd/react-dom#if(!${debug}).production.min#{else}.development#{end}.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="/RendererModel.js"></script>
+    <script src="${clientTopology.staticsBaseUrl}app.bundle#if(!${debug}).min#{end}.js"></script>
+  </body>
+  <style>
+  button {
+    background-color: rgba(127, 204, 247, 1);
+    border: solid rgba(153, 153, 151, 1) 0px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+  }
+  button:hover {
+    background-color: rgba(127, 204, 247, 0.3);
+  }
+
+  body {
+    font-size: 40px;
+    font-family: Arial;
+    margin: 0px 0px 0 calc((100% - 980px) * 0.5)
+  }
+  </style>
+</html>

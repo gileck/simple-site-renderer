@@ -1,0 +1,7 @@
+export const LOAD = "LOAD"
+export const START = "START"
+export const INIT = "INIT"
+export const SET_DATA = "SET_DATA"
+export const WORKER_DONE = "WORKER_DONE"
+export const SET_EVENT_HANDLER = "SET_EVENT_HANDLER"
+export const HANDLE_ACTION = "HANDLE_ACTION"
