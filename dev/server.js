@@ -35,15 +35,6 @@ app.get('/worker.js', async (req, res) => {
   res.sendFile(path.resolve(__dirname + '/../src/worker.js'))
 })
 
-app.get('/RendererModel.js', (req, res) => {
-  res.sendFile(path.resolve(__dirname + '/../assets/RendererModel.js'))
-})
-
-app.get('/app.css', (req, res) => {
-  res.contentType('bla');
-  res.sendFile(__dirname + '/../assets/app.css')
-})
-
 app.get('/siteStructure', (req, res) => {
   const body = fs.readFileSync(__dirname + '/../assets/siteStructure.json')
   res.send(JSON.parse(body))

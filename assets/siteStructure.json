@@ -1,44 +1,42 @@
-{
-  "components": [
-    {
-      "compId": "compId1",
-      "type": "Button",
-      "wixCodeId": "#button1",
-      "data": {
-        "label": "Click Me"
-      },
-      "layout": {
-        "x": 450,
-        "y": 115,
-        "width": 142,
-        "height": 40
-      }
+[
+  {
+    "compId": "compId1",
+    "type": "Button",
+    "wixCodeId": "#button1",
+    "data": {
+      "label": "Click Me"
     },
-    {
-      "compId": "compId3",
-      "type": "Image",
-      "wixCodeId": "#image1",
-      "data": {
-        "src": "https://static.wixstatic.com/media/99bc1c6f66444769b531221214c885ac.jpg/v1/fill/w_1200,h_900,al_c,q_85,usm_0.66_1.00_0.01/A%20View.webp"
-      },
-      "layout": {
-        "x": 450,
-        "y": 218,
-        "width": 600,
-        "height": 450
-      }
-    },
-    {
-      "compId": "compId5",
-      "type": "Text",
-      "wixCodeId": "#text1",
-      "data": {
-        "text": "I AM TEXT"
-      },
-      "layout": {
-        "x": 850,
-        "y": 112
-      }
+    "layout": {
+      "x": 450,
+      "y": 115,
+      "width": 142,
+      "height": 40
     }
-  ]
-}
+  },
+  {
+    "compId": "compId3",
+    "type": "Image",
+    "wixCodeId": "#image1",
+    "data": {
+      "src": "https://static.wixstatic.com/media/99bc1c6f66444769b531221214c885ac.jpg/v1/fill/w_1200,h_900,al_c,q_85,usm_0.66_1.00_0.01/A%20View.webp"
+    },
+    "layout": {
+      "x": 450,
+      "y": 218,
+      "width": 600,
+      "height": 450
+    }
+  },
+  {
+    "compId": "compId5",
+    "type": "Text",
+    "wixCodeId": "#text1",
+    "data": {
+      "text": "I AM TEXT"
+    },
+    "layout": {
+      "x": 850,
+      "y": 112
+    }
+  }
+]

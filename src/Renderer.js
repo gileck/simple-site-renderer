@@ -1,18 +1,9 @@
 import React from 'react'
 import _ from 'lodash'
 
-const Button = (props) => {
-  return <button style={{width: props.layout.width, height:props.layout.height}}>{props.data.label}</button>
-}
-
-const Image = (props) => {
-  return <img src={props.data.src} width={props.layout.width} height={props.layout.height}/>
-}
-
-const Text = (props) => {
-  return <div>{props.data.text}</div>
-}
-
+const Button = props => <button style={{width: props.layout.width, height:props.layout.height}}>{props.data.label}</button>
+const Image = props => <img style={{width: props.layout.width, height:props.layout.height}} src={props.data.src}/>
+const Text = props => <div>{props.data.text}</div>
 const viewerComponents = {
   Text,
   Button,

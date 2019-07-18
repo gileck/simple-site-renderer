@@ -11,8 +11,8 @@ function waitForWorkerToFinish() {
 }
 
 async function startViewer() {
-  const {components} = await fetch(window.RendererModel.siteStructureUrl).then(res => res.json())
-  const wixCode = await fetch(window.RendererModel.wixCodeUrl).then(res => res.text())
+  const components = await fetch('/siteStructure').then(res => res.json())
+  const wixCode = await fetch('/wixCode').then(res => res.text())
 
   const worker = new Worker('/worker.js')
   worker.postMessage({
