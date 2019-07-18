@@ -54,7 +54,7 @@ class Image {
   }
 }
 
-const classes =  {
+const classes = {
   Button,
   Image,
   Text
