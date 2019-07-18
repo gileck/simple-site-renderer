@@ -1,6 +1,14 @@
 let _components
 const eventHandlers = {}
 
+function setData(data, compId) {
+  self.postMessage({
+    type: "SET_DATA",
+    compId,
+    data
+  })
+}
+
 class Button {
   constructor(comp) {
     this.comp = comp
@@ -14,6 +22,12 @@ class Button {
       compId: this.comp.compId
     })
   }
+  set label(label) {
+    setData({label}, this.comp.compId)
+  }
+  get label() {
+    return this.comp.data.label
+  }
 }
 
 class Text {
@@ -21,13 +35,7 @@ class Text {
     this.comp = comp
   }
   set text(text) {
-    self.postMessage({
-      compId: this.comp.compId,
-      data: {
-        text
-      },
-      type: "SET_DATA"
-    })
+    setData({text}, this.comp.compId)
   }
   get text() {
     return this.comp.data.text
@@ -39,13 +47,7 @@ class Image {
     this.comp = comp
   }
   set src(src) {
-    self.postMessage({
-      compId: this.comp.compId,
-      data: {
-        src
-      },
-      type: "SET_DATA"
-    })
+    setData({src}, this.comp.compId)
   }
   get src() {
     return this.comp.data.src
