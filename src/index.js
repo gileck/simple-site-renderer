@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
 import Renderer from './Renderer'
-
+import {observable, toJS} from 'mobx'
 let components
 
 function platform() {
@@ -10,13 +10,22 @@ function platform() {
     const worker = new Worker('/worker.js')
     worker.postMessage({
       wixCode,
-      components,
+      components: toJS(components),
       type: "START"
     })
     const handlers = {
       SET_DATA: function ({compId, data}) {
         const component = components.find(comp => compId === comp.compId)
         Object.assign(component.data, data)
+      },
+      SET_EVENT_HANDLER: function ({compId, callbackId}) {
+      const component = components.find(comp => compId === comp.compId)
+        component.onClick = function () {
+          worker.postMessage({
+            type: "HANDLE_EVENT",
+            callbackId
+          })
+        }
       },
       WORKER_DONE: () => resolve(),
     }
@@ -25,7 +34,7 @@ function platform() {
 }
 
 async function startViewer() {
-  components = await fetch('/siteStructure').then(res => res.json())
+  components = await fetch('/siteStructure').then(res => res.json()).then(comps => observable(comps))
   await platform()
   ReactDOM.render(<Renderer components={components}/>, document.getElementById('root'))
 }
