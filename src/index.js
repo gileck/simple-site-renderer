@@ -2,32 +2,31 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import Renderer from './Renderer'
 
-let _workerFinishResolver
+let components
 
-function waitForWorkerToFinish() {
-  return new Promise(resolve => {
-    _workerFinishResolver = resolve
+function platform() {
+  return new Promise(async resolve => {
+    const wixCode = await fetch('/wixCode').then(res => res.text())
+    const worker = new Worker('/worker.js')
+    worker.postMessage({
+      wixCode,
+      components,
+      type: "START"
+    })
+    const handlers = {
+      SET_DATA: function ({compId, data}) {
+        const component = components.find(comp => compId === comp.compId)
+        Object.assign(component.data, data)
+      },
+      WORKER_DONE: () => resolve(),
+    }
+    worker.onmessage = ({data}) => handlers[data.type](data)
   })
 }
 
 async function startViewer() {
-  const components = await fetch('/siteStructure').then(res => res.json())
-  const wixCode = await fetch('/wixCode').then(res => res.text())
-
-  const worker = new Worker('/worker.js')
-  worker.postMessage({
-    wixCode,
-    components,
-  })
-
-  worker.onmessage = function ({data: {compId, data}}) {
-    const component = components.find(comp => compId === comp.compId)
-    Object.assign(component.data, data)
-    _workerFinishResolver()
-  }
-
-  await waitForWorkerToFinish()
-
+  components = await fetch('/siteStructure').then(res => res.json())
+  await platform()
   ReactDOM.render(<Renderer components={components}/>, document.getElementById('root'))
 }
 
