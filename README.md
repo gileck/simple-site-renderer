@@ -1,6 +1,6 @@
 # viewer-demo
 
-A simple viewer implementation with focus on platform.
+A simple viewer implementation that demonstrate how the viewer + wixCode works.
 
 run yarn && yarn start and go to http://localhost:3000/
 
