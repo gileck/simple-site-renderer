@@ -1,14 +1,14 @@
 # viewer-demo
 
-A simple viewer implementation that demonstrate how the viewer + wixCode works.
+A simple site renderer implementation that demonstrate how the viewer + corvid works.
 
 run yarn && yarn start and go to http://localhost:3000/
 
 # Viewer input:
 
-Structure: https://github.com/wix-a/viewer-demo/blob/master/assets/siteStructure.json
+Structure: /assets/siteStructure.json
 
-WixCode: https://github.com/wix-a/viewer-demo/blob/master/assets/wixCode.js
+Corvid User Code: /assets/wixCode.js
 
 # Branches:
 
