@@ -47,7 +47,6 @@
     "externals": {
       "react": "React",
       "react-dom": "ReactDOM",
-      "@wix/fedops-logger": "fedopsLogger"
     },
     "entry": {
       "worker": "./worker.js",
