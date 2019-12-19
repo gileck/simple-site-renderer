@@ -1,4 +1,4 @@
-# viewer-demo
+# Simple-Site-Renderer
 
 A simple site renderer implementation that demonstrate how the viewer + corvid works.
 
